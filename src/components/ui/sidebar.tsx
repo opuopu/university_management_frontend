@@ -4,13 +4,13 @@ import React, { useState } from "react";
 const { Header, Content, Sider } = Layout;
 
 import type { MenuProps } from "antd";
-import { USER_ROLE } from "@/app/constants/role";
-import SidebarItem from "@/app/constants/sidebarItem";
+import { USER_ROLE } from "@/constants/role";
+import { sidebarItems } from "@/constants/sidebarItem";
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const role = USER_ROLE.ADMIN;
-  const items = SidebarItem(role);
+  const items = sidebarItems(role);
   return (
     <Sider
       width={280}
