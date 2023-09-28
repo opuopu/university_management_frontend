@@ -8,11 +8,20 @@ import Image from "next/image";
 import { SubmitHandler } from "react-hook-form";
 import Form from "@/components/Forms/Forms";
 import FormInput from "@/components/Forms/FormInput";
+import { useUserLoginMutation } from "@/redux/features/authSlice/authApi";
+import { storeTokenToStroage } from "@/service/auth.service";
 export default function Login() {
-  const onSubmit: SubmitHandler<any> = (data) => {
+  const [userLogin, data] = useUserLoginMutation();
+  const onSubmit: SubmitHandler<any> = async (data) => {
     try {
-      console.log(data);
-    } catch (err) {}
+      console.log("data", data);
+      const res = await userLogin({
+        ...data,
+      }).unwrap();
+      storeTokenToStroage(res.data.accessToken);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <Row
