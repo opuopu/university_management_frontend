@@ -13,18 +13,7 @@ export default function Contents({ children }: { children: React.ReactNode }) {
       }}
     >
       <Header />
-      <UMbreadcrub
-        items={[
-          {
-            label: "admin",
-            Link: "/admin",
-          },
-          {
-            label: "student",
-            Link: "/student",
-          },
-        ]}
-      />
+
       {children}
     </Content>
   );

@@ -27,7 +27,13 @@ const FormInput = ({
 
   return (
     <>
-      {label ? label : null}
+      <div
+        style={{
+          margin: "3px 0",
+        }}
+      >
+        {label ? label : null}
+      </div>
       <Controller
         control={control}
         name={name}

@@ -2,12 +2,15 @@ import React from "react";
 import { Avatar, Button, Dropdown, Layout, MenuProps, Row, Space } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { userLogOut } from "@/service/auth.service";
+import { useRouter } from "next/navigation";
 
 const { Header: AntHeader, Content } = Layout;
 
 export default function Header() {
+  const router = useRouter();
   const handleLogout = () => {
     userLogOut("accessToken");
+    router.push("/login");
   };
   const items: MenuProps["items"] = [
     {
